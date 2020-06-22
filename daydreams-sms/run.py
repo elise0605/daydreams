@@ -27,13 +27,12 @@ def hello():
     connection.close()
 
 
-        message_body = request.form['Body']
-        resp = MessagingResponse()
+    message_body = request.form['Body']
+    resp = MessagingResponse()
 
-        replyText = getReply(message_body)
-        resp.message('Hi\n\n' + replyText)
-        return str(resp)
+    replyText = getReply(message_body)
+    resp.message('Hi\n\n' + replyText)
+    return str(resp)
 
-    if __name__ == "__main__":
-
+if __name__ == "__main__":
     app.run(debug=True)
