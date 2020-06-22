@@ -30,7 +30,7 @@ def hello():
     resp = MessagingResponse()
 
     replyText = getReply(message_body)
-    resp.message('Hi\n\n' + replyText)
+    response_message = 'Hello {}, You said:{}'.format(number, message_body)
     return str(resp)
 
 if __name__ == "__main__":
