@@ -21,7 +21,7 @@ def hello():
     channel = connection.channel()
     channel.queue_declare(queue='texts')
 
-    message = str(from_number) + ": " + str(body)
+    message = f"{from_number}: {body}"
 
     channel.basic_publish(exchange='', routing_key='texts', body=message)
     connection.close()
@@ -31,8 +31,9 @@ def hello():
     resp = MessagingResponse()
 
     replyText = getReply(message_body)
-    resp.message('Hi\n\n' + hello hello)
+    resp.message('Hi\n\n' + replyText)
     return str(resp)
 
 if __name__ == "__main__":
+
     app.run(debug=True)
