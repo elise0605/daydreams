@@ -1,7 +1,6 @@
 from flask import Flask, request, redirect
-from urllib.parse import urlparse
 import twilio.twiml
-import pika, os
+import pika, os, urlparse
 
 app = Flask(__name__)
 
@@ -12,7 +11,7 @@ def hello():
     body = request.values.get('Body', None)
 
     url_str = os.environ.get('CLOUDAMQP_URL','amqp://pbvvwkhx:CIVpeKpO-ESZH4iBTSv0ddA7ndIoaCWv@crow.rmq.cloudamqp.com/pbvvwkhx')
-    url = urlparse(url_str)
+    url = urlparse.urlparse(url_str)
 
     params = pika.ConnectionParameters(host=url.hostname, virtual_host=url.path[1:],
         credentials=pika.PlainCredentials(url.username, url.password))
