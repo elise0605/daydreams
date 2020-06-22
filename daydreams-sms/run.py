@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect
 from urllib.parse import urlparse
-import twilio.twiml
+from twilio.twiml.messaging_response import Message, MessagingResponse
 import pika, os
 
 app = Flask(__name__)
@@ -26,8 +26,13 @@ def hello():
     channel.basic_publish(exchange='', routing_key='texts', body=message)
     connection.close()
 
-    resp = twilio.twiml.Response()
-    resp.message("We're so happy! We got your message and it's currently printing. Tx, Elise T")
+    def sms():
+
+    message_body = request.form['Body']
+    resp = MessagingResponse()
+
+    replyText = getReply(message_body)
+    resp.message('Hi\n\n' + replyText )
     return str(resp)
 
 if __name__ == "__main__":
