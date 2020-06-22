@@ -12,7 +12,7 @@ def hello():
     body = request.values.get('Body', None)
 
     url_str = os.environ.get('CLOUDAMQP_URL','amqp://myurl')
-    url = urllib.parse(url_str)
+    url = urlparse(url_str)
 
     params = pika.ConnectionParameters(host=url.hostname, virtual_host=url.path[1:],
         credentials=pika.PlainCredentials(url.username, url.password))
