@@ -26,14 +26,14 @@ def hello():
     channel.basic_publish(exchange='', routing_key='texts', body=message)
     connection.close()
 
-    def sms():
 
         message_body = request.form['Body']
         resp = MessagingResponse()
 
         replyText = getReply(message_body)
-        resp.message('Hi\n\n' + replyText )
+        resp.message('Hi\n\n' + replyText)
         return str(resp)
 
-if __name__ == "__main__":
+    if __name__ == "__main__":
+
     app.run(debug=True)
