@@ -30,8 +30,8 @@ def hello():
     message_body = request.form['Body']
     resp = MessagingResponse()
 
-    replyText = getReply(message_body)
-    resp.message('Hi\n\n' + replyText)
+    resp.message("The Robots are coming! Head for the hills!")
+
     return str(resp)
 
 if __name__ == "__main__":
