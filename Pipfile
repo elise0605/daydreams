@@ -13,6 +13,7 @@ flask-sqlalchemy = "*"
 gunicorn = "*"
 twilio = "*"
 pika = "*"
+django= "*"
 
 [requires]
 python_version = "3.8"
