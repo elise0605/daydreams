@@ -1,1 +1,1 @@
-web: gunicorn --chdir run:app
+web: gunicorn --chdir daydreams-sms run:app
