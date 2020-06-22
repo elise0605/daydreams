@@ -28,11 +28,10 @@ def hello():
 
     message_body = request.form['Body']
     resp = MessagingResponse()
-
-    replyText = getReply(message_body)
-    response_message = 'Hello {}, You said:{}'.format(number, message_body)
+    resp.message("The Robots are coming! Head for the hills!")
     return str(resp)
 
 if __name__ == "__main__":
+
 
     app.run(debug=True)
