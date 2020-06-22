@@ -21,12 +21,11 @@ def hello():
     channel = connection.channel()
     channel.queue_declare(queue='texts')
 
-    message = f"{from_number}: {body}"
+    message = str(from_number) + ": " + str(body)
 
     channel.basic_publish(exchange='', routing_key='texts', body=message)
     connection.close()
 
-def sms_reply():
     message_body = request.form['Body']
     resp = MessagingResponse()
 
