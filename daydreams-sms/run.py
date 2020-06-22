@@ -26,6 +26,11 @@ def hello():
     channel.basic_publish(exchange='', routing_key='texts', body=message)
     connection.close()
 
+    resp = twilio.twiml.Response()
+    resp = MessagingResponse()
+    resp.message("We're so happy! We got your message and it's currently printing. Tx, Elise T")
+    return str(resp)
+
     message_body = request.form['Body']
     resp = MessagingResponse()
     resp.message("Thank you for texting me, I will print soon :)")
