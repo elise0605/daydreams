@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect
 import twilio.twiml
-import pika, os, urlparse
+import pika, os, urljoin
 
 app = Flask(__name__)
 
