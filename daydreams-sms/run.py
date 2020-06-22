@@ -26,7 +26,7 @@ def hello():
     channel.basic_publish(exchange='', routing_key='texts', body=message)
     connection.close()
 
-
+def sms_reply():
     message_body = request.form['Body']
     resp = MessagingResponse()
 
