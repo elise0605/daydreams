@@ -21,7 +21,7 @@ def hello():
     channel = connection.channel()
     channel.queue_declare(queue='texts')
 
-    message = str(body)
+    message = "Daydream: " + str(body) + "             "
 
     channel.basic_publish(exchange='', routing_key='texts', body=message)
     connection.close()
