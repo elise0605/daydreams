@@ -28,7 +28,7 @@ def hello():
 
     message_body = request.form['Body']
     resp = MessagingResponse()
-    resp.message("Thank you for texting me, I will print soon :)")
+    resp.message("Thank you for texting me, I will print soon :) look at your message here: daydream.no")
     return str(resp)
 
 if __name__ == "__main__":
